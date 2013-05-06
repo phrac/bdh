@@ -1,0 +1,34 @@
+\documentclass[10pt,ebook,extrafontsizes]{memoir}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage[style=authoryear,backend=biber]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+\addbibresource{refs.bib}
+
+\title{The Beverage Distiller's Bible}
+\author{Derek Musselmann}
+
+\begin{document}
+\chapterstyle{veelo}
+\maketitle
+\includegraphics[scale=0.55]{disfluxpress.eps}
+\clearpage
+\tableofcontents
+
+\part{Distillation Theory, Equipment Design, and Operating Procedures}
+\chapter{Introduction to Distillation}
+\include{01_intro}
+\chapter{Equipment Design and Development}
+
+\chapter{Still Operating Procedures}
+
+
+\part{Detailed Information about Specific Types of Beverages}
+\chapter{Gin}
+\include{gin/gin}
+\include{gin/ingredients}
+
+\clearpage
+\printbibliography
+\end{document}
+
