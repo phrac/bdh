@@ -2,33 +2,90 @@
 \usepackage{graphicx}
 \usepackage{url}
 \usepackage[style=authoryear,backend=biber]{biblatex}
+\usepackage{makeidx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+% skip a line on paragraphs and don't indent
+\setlength\parindent{0pt} % sets indent to zero
+\setlength{\parskip}{10pt} % changes vertical space between paragraphs
+
 \DeclareLanguageMapping{american}{american-apa}
 \addbibresource{refs.bib}
+\makeindex
 
-\title{The Beverage Distiller's Bible}
-\author{Derek Musselmann}
+%%% ToC down to subsections
+\settocdepth{subsection}
+%%% Numbering down to subsections as well
+\setsecnumdepth{subsection}
+
+%------------
+% Title Page
+%------------
+\newcommand*{\plogo}{\fbox{$\mathcal{PL}$}} % Generic publisher logo
+\newcommand*{\titleGP}{\begingroup % Create the command for including the title page in the document
+\centering % Center all text
+\vspace*{\baselineskip} % White space at the top of the page
+
+\rule{\textwidth}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt} % Thick horizontal line
+\rule{\textwidth}{0.4pt}\\[\baselineskip] % Thin horizontal line
+
+{\LARGE THE \\ BEVERAGE DISTILLER'S \\[0.3\baselineskip] HANDBOOK}\\[0.2\baselineskip] % Title
+
+\rule{\textwidth}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt} % Thin horizontal line
+\rule{\textwidth}{1.6pt}\\[\baselineskip] % Thick horizontal line
+
+\scshape % Small caps
+A complete reference manual for distillers\\ % Tagline(s) or further description
+presented  in a clear and useable way \\[\baselineskip] % Tagline(s) or further description
+U.S.A.,  2013\par % Location and year
+
+\vspace*{2\baselineskip} % Whitespace between location/year and editors
+
+Edited by \\[\baselineskip]
+{\Large DEREK MUSSELMANN\par} % Editor list
+{\itshape Darkhorse Distilling \\ Omaha\par} % Editor affiliation
+
+\vfill % Whitespace between editor names and publisher logo
+\includegraphics[scale=0.55]{disfluxpress.eps} \\[0.3\baselineskip]
+{\scshape 2013} \\[0.3\baselineskip] % Year published
+{\large DISFLUX PRESS}\par % Publisher
+
+\endgroup}
+
 
 \begin{document}
-\chapterstyle{veelo}
-\maketitle
-\includegraphics[scale=0.55]{disfluxpress.eps}
+\chapterstyle{madsen}
+\pagestyle{empty}
+\titleGP
 \clearpage
 \tableofcontents
+\pagestyle{plain}
 
-\part{Distillation Theory, Equipment Design, and Operating Procedures}
-\chapter{Introduction to Distillation}
-\include{01_intro}
-\chapter{Equipment Design and Development}
+\part{Spirit Analysis and Production}
 
-\chapter{Still Operating Procedures}
+\chapter{Brandies}
 
+\chapter{Cordials \& Liqueurs}
 
-\part{Detailed Information about Specific Types of Beverages}
-\chapter{Gin}
-\include{gin/gin}
+\chapter{Gin \& Genever}
+\include{gin/overview}
 \include{gin/ingredients}
+
+\chapter{Rum}
+
+\chapter{Tequila}
+
+\chapter{Vodka \& Other Neutral Spirits}
+
+\chapter{Whiskey}
+
+\part{Still Design and Operation}
 
 \clearpage
 \printbibliography
+\printindex
+
 \end{document}
 
